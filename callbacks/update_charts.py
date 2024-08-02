@@ -32,7 +32,7 @@ def register_callbacks(app):
         ],
         [Input('country-dropdown', 'value')]
     )
-    def update_country_graphs(selected_options):
+    def update_charts(selected_options):
         traces = {key: [] for key in [
             'total_cases', 'total_deaths', 'new_cases', 'new_deaths', 'active_cases', 'deaths_percentage'
         ]}
@@ -53,7 +53,7 @@ def register_callbacks(app):
             selected_df = selected_df.sort_values('date')
 
             # Aggregate data for continents
-            if option in df['continent'].unique():
+            if option in df['continent'].unique() or option == 'ALL':
                 aggregated_df = selected_df.groupby('date').sum().reset_index()
             else:
                 aggregated_df = selected_df

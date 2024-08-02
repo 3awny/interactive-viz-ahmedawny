@@ -16,7 +16,6 @@ app.title = "COVID-19 Dashboard"
 
 # Set up the layout
 app.layout = dcc.Loading(id='loading-page-content', children=[html.Div([    
-        # dcc.Location(id='url', refresh=False),
         navbar.create_navbar(),
         dash.page_container
     ])]
