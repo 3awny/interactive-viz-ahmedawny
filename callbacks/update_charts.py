@@ -48,6 +48,7 @@ def register_callbacks(app):
                 selected_df = df[df['country'] == option]
                 name = option
 
+            selected_df = selected_df.copy()  # Create a copy of the DataFrame to avoid the SettingWithCopyWarning
             selected_df['date'] = pd.to_datetime(selected_df['date'])
             selected_df = selected_df.sort_values('date')
 
