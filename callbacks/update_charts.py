@@ -7,19 +7,6 @@ import pycountry_convert as pc
 # Load the data
 df = pd.read_csv('./data/worldometer_coronavirus_daily_data.csv')
 
-# Helper function to get continent from country name
-def get_continent(country_name):
-    try:
-        country_alpha2 = pycountry.countries.lookup(country_name).alpha_2
-        continent_code = pc.country_alpha2_to_continent_code(country_alpha2)
-        continent_name = pc.convert_continent_code_to_continent_name(continent_code)
-        return continent_name
-    except (LookupError, KeyError):
-        return None
-
-# Add continent column to the dataframe
-df['continent'] = df['country'].apply(get_continent)
-
 def register_callbacks(app):
     @app.callback(
         [
