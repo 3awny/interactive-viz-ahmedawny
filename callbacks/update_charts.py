@@ -86,10 +86,52 @@ def register_callbacks(app):
             ))
 
         return (
-            {'data': traces['total_cases'], 'layout': go.Layout(title='Total Cases Over Time')},
-            {'data': traces['total_deaths'], 'layout': go.Layout(title='Total Deaths Over Time')},
-            {'data': traces['new_cases'], 'layout': go.Layout(title='New Cases Over Time')},
-            {'data': traces['new_deaths'], 'layout': go.Layout(title='New Deaths Over Time')},
-            {'data': traces['active_cases'], 'layout': go.Layout(title='Active Cases Over Time')},
-            {'data': traces['deaths_percentage'], 'layout': go.Layout(title='Total Deaths as Percentage of Total Cases Over Time')}
+            {
+                'data': traces['total_cases'],
+                'layout': go.Layout(
+                    title='Total Cases Over Time',
+                    xaxis={'title': {'text': 'Date', 'standoff': 20}},
+                    yaxis={'title': {'text': 'Total Cases', 'standoff': 20}}
+                )
+            },
+            {
+                'data': traces['total_deaths'],
+                'layout': go.Layout(
+                    title='Total Deaths Over Time',
+                    xaxis={'title': {'text': 'Date', 'standoff': 20}},
+                    yaxis={'title': {'text': 'Total Deaths', 'standoff': 20}}
+                )
+            },
+            {
+                'data': traces['new_cases'],
+                'layout': go.Layout(
+                    title='New Cases Over Time',
+                    xaxis={'title': {'text': 'Date', 'standoff': 20}},
+                    yaxis={'title': {'text': 'New Cases', 'standoff': 20}}
+                )
+            },
+            {
+                'data': traces['new_deaths'],
+                'layout': go.Layout(
+                    title='New Deaths Over Time',
+                    xaxis={'title': {'text': 'Date', 'standoff': 20}},
+                    yaxis={'title': {'text': 'New Deaths', 'standoff': 20}}
+                )
+            },
+            {
+                'data': traces['active_cases'],
+                'layout': go.Layout(
+                    title='Active Cases Over Time',
+                    xaxis={'title': {'text': 'Date', 'standoff': 20}},
+                    yaxis={'title': {'text': 'Active Cases', 'standoff': 20}}
+                )
+            },
+            {
+                'data': traces['deaths_percentage'],
+                'layout': go.Layout(
+                    title='Total Deaths as Percentage of Total Cases Over Time',
+                    xaxis={'title': {'text': 'Date', 'standoff': 20}},
+                    yaxis={'title': {'text': 'Percentage', 'standoff': 20}}
+                )
+            }
         )
