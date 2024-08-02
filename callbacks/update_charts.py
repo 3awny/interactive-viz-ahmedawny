@@ -1,12 +1,12 @@
+# Import necessary modules from Dash dependencies and Plotly
 from dash.dependencies import Input, Output
 import plotly.graph_objs as go
 import pandas as pd
-import pycountry
-import pycountry_convert as pc
 
-# Load the data
+# Load the data from the CSV file
 df = pd.read_csv('./data/worldometer_coronavirus_daily_data.csv')
 
+# Function to register callbacks with the Dash app
 def register_callbacks(app):
     @app.callback(
         [
@@ -19,11 +19,14 @@ def register_callbacks(app):
         ],
         [Input('country-dropdown', 'value')]
     )
+    # Function to update charts based on selected options from the dropdown
     def update_charts(selected_options):
+        # Initialize a dictionary to hold traces for each chart
         traces = {key: [] for key in [
             'total_cases', 'total_deaths', 'new_cases', 'new_deaths', 'active_cases', 'deaths_percentage'
         ]}
 
+        # Iterate over each selected option from the dropdown
         for option in selected_options:
             if option == 'ALL':
                 selected_df = df
@@ -36,10 +39,10 @@ def register_callbacks(app):
                 name = option
 
             selected_df = selected_df.copy()  # Create a copy of the DataFrame to avoid the SettingWithCopyWarning
-            selected_df['date'] = pd.to_datetime(selected_df['date'])
-            selected_df = selected_df.sort_values('date')
+            selected_df['date'] = pd.to_datetime(selected_df['date'])  # Convert the date column to datetime format
+            selected_df = selected_df.sort_values('date')  # Sort the DataFrame by date
 
-            # Aggregate data for continents
+            # Aggregate data for continents or all countries
             if option in df['continent'].unique() or option == 'ALL':
                 aggregated_df = selected_df.groupby('date').sum().reset_index()
             else:
@@ -48,6 +51,7 @@ def register_callbacks(app):
             # Calculate deaths as a percentage of total cases
             aggregated_df['deaths_percentage'] = (aggregated_df['cumulative_total_deaths'] / aggregated_df['cumulative_total_cases']) * 100
 
+            # Add traces for each type of data to the corresponding list in the dictionary
             traces['total_cases'].append(go.Scatter(
                 x=aggregated_df['date'], y=aggregated_df['cumulative_total_cases'], mode='lines', name=name
             ))
@@ -72,6 +76,7 @@ def register_callbacks(app):
                 x=aggregated_df['date'], y=aggregated_df['deaths_percentage'], mode='lines', name=name
             ))
 
+        # Return the figures for each graph
         return (
             {
                 'data': traces['total_cases'],

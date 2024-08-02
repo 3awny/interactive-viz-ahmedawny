@@ -23,8 +23,6 @@ pandas==2.2.2
 plotly==5.23.0
 pluggy==1.5.0
 pprintpp==0.4.0
-pycountry==24.6.1
-pycountry-convert==0.7.2
 pytest==8.3.2
 pytest-cov==5.0.0
 pytest-mock==3.14.0
