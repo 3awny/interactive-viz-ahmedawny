@@ -51,7 +51,7 @@ project-directory/
 
 3. **Access the app (locally)**
     
-    If step 2 above is completed you can view the app here:
+    If step 2 above is completed you can view the app here
     - **Locally**: Open your web browser and go to [http://127.0.0.1:8050](http://127.0.0.1:8050/).
 
 
