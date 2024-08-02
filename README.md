@@ -31,7 +31,7 @@ project-directory/
 
 ## Requirements
 
-- Python 3.10
+- Python 3.10 or 3.11
 - `pip` (Python package installer)
 
 ## Setup & Run

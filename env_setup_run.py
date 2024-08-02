@@ -28,7 +28,7 @@ def main():
     
     # Check for Python 3.10 or 3.11
     python_executable = None
-    for version in ['3.10', '3.11']:
+    for version in ['3.11', '3.10']:
         try:
             subprocess.check_call([f'python{version}', '--version'])
             python_executable = f'python{version}'
