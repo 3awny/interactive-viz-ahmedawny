@@ -1,6 +1,8 @@
 # My Dash App
 
-This is a Dash app that visualizes data from the worldometer coronavirus daily data.
+This is a Dash app that explores trends from the worldometer coronavirus daily data.
+
+Kaggle: [Dataset source](https://www.kaggle.com/datasets/josephassaker/covid19-global-dataset) 
 
 ## Requirements
 
@@ -32,4 +34,4 @@ This is a Dash app that visualizes data from the worldometer coronavirus daily d
 
 Production: The app is currently deployed at [https://interactive-viz-ahmedawny.onrender.com](https://interactive-viz-ahmedawny.onrender.com).
 
-**Note:** Because a free tier web service is used, the deployed service spins down when there is no activity. If it's in a down state at the time you visit the link, you won't see the page straight away. Please wait up to 1 minute max for the service to spin-up, it will appear to you that the page is loading for that time. It will not take longer than 1 minute.
+**Note:** Because a free tier web service is used, the deployed service spins down when there is no activity for certain amount of time. If it's in a down state at the time you visit the link, you won't see the page straight away. Please wait up to 1 minute max for the service to spin-up, it will appear to you that the page is loading in that time. It will not take longer than 1 minute.

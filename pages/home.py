@@ -13,8 +13,8 @@ def create_separator(label):
     return {'label': label, 'value': '', 'disabled': True}
 
 # Create options with separators
-country_options = [create_separator('Countries')]
-country_options.extend([{'label': country, 'value': country} for country in countries_list])
+country_options = [(create_separator('All'))]
+country_options.append({'label': 'All Countries', 'value': 'ALL'})
 country_options.append(create_separator('Continents'))
 country_options.extend([
     {'label': 'Africa', 'value': 'Africa'},
@@ -24,8 +24,8 @@ country_options.extend([
     {'label': 'South America', 'value': 'South America'},
     {'label': 'Oceania', 'value': 'Oceania'}
 ])
-country_options.append(create_separator('All'))
-country_options.extend([{'label': 'All Countries', 'value': 'ALL'},])
+country_options.append(create_separator('Countries'))
+country_options.extend([{'label': country, 'value': country} for country in countries_list])
 
 # Include the Bootstrap CSS
 external_stylesheets = ['https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css']
@@ -37,7 +37,7 @@ def layout():
         html.Div([
                 html.H2(id='overview', children="Overview"),
                 html.P(
-                    "Welcome to the COVID-19 Dashboard. This dashboard provides a detailed overview of the pandemic's impact from February 2020 to May 2022. It features interactive graphs that display the total and new COVID-19 cases and deaths over this period. You can explore the data by country and/or continent to understand the trends and patterns across different regions. The goal of these visualizations is to offer insights into the progression of the pandemic, helping you to analyze and interpret the data effectively."
+                    "Welcome to the COVID-19 Dashboard. This dashboard provides a detailed overview of the pandemic's impact from January 2020 to May 2022. It features interactive graphs that display the total and new COVID-19 cases and deaths over this period. You can explore the data by country and/or continent to understand the trends and patterns across different regions. The goal of these visualizations is to offer insights into the progression of the pandemic, helping you to analyze and interpret the data effectively."
                 ),
         ], id='overview', style={'padding': '50px', 'margin-left': '50px', 'margin-right': '50px'}),
         html.Div([
